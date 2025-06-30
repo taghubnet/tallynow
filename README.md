@@ -162,7 +162,9 @@ This project is open source and welcomes contributions! Areas for improvement in
 
 ## License
 
-This project is released under an open source license. See LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+The MIT License allows you to use, modify, and distribute this software freely, including for commercial purposes.
 
 ## Disclaimer
 
