@@ -1,12 +1,12 @@
 from completion import Completion
 from pipes import AssemblyPipe, Pipe, Stand, Rack, Pile
-from import_casing import extract_deck_tally, extract_ids, extract_excel_rows_to_list
+from import_csv import extract_deck_tally, extract_ids, extract_csv_rows_to_list
 
 def get_deck_tally(dt_path, dt_sheet, dt_column_ids, dt_column_lengths, dt_start, dt_end, are_pups=False):
-    """Extract id and length of all pipes in deck tally from an excel file"""
+    """Extract id and length of all pipes in deck tally from a CSV file"""
 
-    deck_tally_ids = extract_deck_tally(dt_path, dt_sheet, dt_column_ids, dt_start, dt_end)
-    deck_tally_lengths = extract_deck_tally(dt_path, dt_sheet, dt_column_lengths, dt_start, dt_end)
+    deck_tally_ids = extract_deck_tally(dt_path, dt_column_ids, dt_start, dt_end)
+    deck_tally_lengths = extract_deck_tally(dt_path, dt_column_lengths, dt_start, dt_end)
 
     deck_tally = []
     for i, length in enumerate(deck_tally_lengths):
@@ -20,9 +20,9 @@ def get_deck_tally(dt_path, dt_sheet, dt_column_ids, dt_column_lengths, dt_start
     return deck_tally
 
 def get_triple_stands_from_file(path, sheet, column, start_row, stop_row, deck_tally):
-    """Get pipes in triple stands from excel file and create the stands."""
+    """Get pipes in triple stands from CSV file and create the stands."""
 
-    pipe_ids = extract_ids(path, sheet, column, start_row, stop_row)
+    pipe_ids = extract_ids(path, column, start_row, stop_row)
     stands = []
     for i in range(len(pipe_ids)//3):
         stand_pipe_ids = pipe_ids[0:3]
@@ -32,9 +32,9 @@ def get_triple_stands_from_file(path, sheet, column, start_row, stop_row, deck_t
     return stands
 
 def get_double_stands_from_file(path, sheet, column, start_row, stop_row, deck_tally):
-    """Get pipes in double stands from excel file and create the stands."""
+    """Get pipes in double stands from CSV file and create the stands."""
 
-    pipe_ids = extract_ids(path, sheet, column, start_row, stop_row)
+    pipe_ids = extract_ids(path, column, start_row, stop_row)
     stands = []
     for i in range(len(pipe_ids)//2):
         stand_pipe_ids = pipe_ids[0:2]
@@ -47,7 +47,7 @@ def get_assemblies_from_file(path):
     """Get assemblies from file.
     Warning: This function requires a strict structure on the assembly file."""
 
-    assembly_list = extract_excel_rows_to_list(path)
+    assembly_list = extract_csv_rows_to_list(path)
     assemblies = []
     for row in assembly_list:
         new_assembly = AssemblyPipe(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7])

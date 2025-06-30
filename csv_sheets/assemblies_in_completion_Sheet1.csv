@@ -1,0 +1,12 @@
+id,length,lower limit,upper limit,separation length,separation pipes,critical point,top assembly,Unnamed: 8,Unnamed: 9,Unnamed: 10
+assy_1_muleshoe,8.318,,,,,,0,,id,assy_x_name
+assy_2_packer,9.302,,,,3.0,4.651,0,,length,length to 3 decimals
+assy_3_gauge,10.501,,,100.0,,,0,,lower limit,depth
+assy_4_gauge,11.51,,,,5.0,,0,,upper limit,depth
+assy_5_mandrel,11.73,1480.0,,,,,0,,separation length,Distance between assemblies
+assy_6_mandrel,11.72,,,,5.0,,0,,separation pipes,Number of pipes between assemblies
+assy_7_valve,16.228,280.0,,,,8.114,0,,critical point,Critical point which should avoid casing joints
+assy_8_valve,11.34,,,,2.0,,0,,top assembly,True(1)/False(0); assembly should be on top of completion
+assy_9_valve-setting-sub,12.416,,,,,,0,,,
+assy_10_plug,9.305,,,,,,0,,,
+assy_11_tubinghanger,150.543,,,,2.0,,1,,,

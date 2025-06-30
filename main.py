@@ -1,5 +1,5 @@
 from pipes import AssemblyPipe, Rack, Pile
-from import_casing import extract_casing_joints
+from import_csv import extract_casing_joints
 from utils import *
 from pprint import pprint
 import os
@@ -58,7 +58,7 @@ if __name__ == "__main__":
         """ 
         """
         
-        assembly_path = PATH+"sheets/assemblies_in_completion.xlsx"
+        assembly_path = PATH+"csv_sheets/assemblies_in_completion_Sheet1.csv"
         assembly_tally = get_assemblies_from_file(assembly_path)
 
     # Casing joints
@@ -71,10 +71,9 @@ if __name__ == "__main__":
         
         Paths have to be absolute.
         """
-        c_paths = [PATH+"sheets/10 3-4 Tie-back Tally Test_Well_As Run.xlsx",\
-                   PATH+"sheets/9 5-8 Liner Tally Test Well As Run.xlsx"]
-        c_sheets = ['10 3-4 Tieback back use',\
-                    '9 5-8" Liner Tally']
+        c_paths = [PATH+"csv_sheets/10 3-4 Tie-back Tally Test_Well_As Run_10 3-4 Tieback back use.csv",\
+                   PATH+"csv_sheets/9 5-8 Liner Tally Test Well As Run_9 5-8\" Liner Tally.csv"]
+        # c_sheets no longer needed for CSV files
         c_columns = ['I',\
                      'G']
         c_start_rows = [18,\
@@ -84,20 +83,20 @@ if __name__ == "__main__":
 
         casing_tally = []
         for i in range(len(c_paths)):
-            casing_tally += extract_casing_joints(c_paths[i], c_sheets[i], c_columns[i], c_start_rows[i], c_end_rows[i])
+            casing_tally += extract_casing_joints(c_paths[i], c_columns[i], c_start_rows[i], c_end_rows[i])
                                                   
     # Deck tally
     if step2:
         """
         Path has to be absolute
         """
-        dt_path = PATH+"sheets/tubing tallies.xlsx"
-        dt_sheet = "Tally1"
+        dt_path = PATH+"csv_sheets/tubing tallies_Tally1.csv"
+        # dt_sheet no longer needed for CSV files
         dt_column_lengths = 'D'
         dt_column_ids = 'A'
         dt_start = 20
-        dt_end = 201
-        deck_tally = get_deck_tally(dt_path, dt_sheet, dt_column_ids, dt_column_lengths, dt_start, dt_end)
+        dt_end = 200
+        deck_tally = get_deck_tally(dt_path, None, dt_column_ids, dt_column_lengths, dt_start, dt_end)
 
     # Step 2 - Solving
     if step2:
@@ -117,23 +116,23 @@ if __name__ == "__main__":
 
     # Step 3 - Input
     if step3:
-        stands_pipes_path = dt_path
-        pipes_sheet = "Racked tubing"
-        pups_sheet = "Tally pups"
+        stands_pipes_path = PATH+"csv_sheets/tubing tallies_Racked tubing.csv"
+        # pipes_sheet no longer needed for CSV files
+        pups_path = PATH+"csv_sheets/tubing tallies_Tally pups.csv"
 
     # Define triple stands
     if step3:
         t_column = 'F'
         t_start = 2
-        t_end = 151
-        triples = get_triple_stands_from_file(stands_pipes_path, pipes_sheet, t_column, t_start, t_end, deck_tally)
+        t_end = 150
+        triples = get_triple_stands_from_file(stands_pipes_path, None, t_column, t_start, t_end, deck_tally)
 
     # Define double stands
     if step3:
         d_column = 'O'
         d_start = 2
         d_end = 9
-        doubles = get_double_stands_from_file(stands_pipes_path, pipes_sheet, d_column, d_start, d_end, deck_tally)
+        doubles = get_double_stands_from_file(stands_pipes_path, None, d_column, d_start, d_end, deck_tally)
 
     # Define single pipes
     if step3:
@@ -145,8 +144,8 @@ if __name__ == "__main__":
         p_column_lengths = 'E'
         p_column_ids = 'A'
         p_start = 25
-        p_end = 34
-        pups = get_deck_tally(stands_pipes_path, pups_sheet, p_column_ids, p_column_lengths, p_start, p_end, are_pups=True)
+        p_end = 33
+        pups = get_deck_tally(pups_path, None, p_column_ids, p_column_lengths, p_start, p_end, are_pups=True)
 
     # Setup full deck tallys, one for itermediate step, one for final
     if step3:
