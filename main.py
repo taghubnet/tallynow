@@ -1,5 +1,5 @@
 from pipes import AssemblyPipe, Rack, Pile
-from import_csv import extract_casing_joints
+from utils import extract_casing_joints
 from utils import *
 from pprint import pprint
 import os
