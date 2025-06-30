@@ -58,7 +58,7 @@ if __name__ == "__main__":
         """ 
         """
         
-        assembly_path = PATH+"data/assemblies_in_completion_Sheet1.csv"
+        assembly_path = PATH+"data/assemblies.csv"
         assembly_tally = get_assemblies_from_file(assembly_path)
 
     # Casing joints
@@ -71,8 +71,8 @@ if __name__ == "__main__":
         
         Paths have to be absolute.
         """
-        c_paths = [PATH+"data/10 3-4 Tie-back Tally Test_Well_As Run_10 3-4 Tieback back use.csv",\
-                   PATH+"data/9 5-8 Liner Tally Test Well As Run_9 5-8\" Liner Tally.csv"]
+        c_paths = [PATH+"data/tieback_tally.csv",\
+                   PATH+"data/liner_tally.csv"]
         # c_sheets no longer needed for CSV files
         c_columns = ['I',\
                      'G']
@@ -90,7 +90,7 @@ if __name__ == "__main__":
         """
         Path has to be absolute
         """
-        dt_path = PATH+"data/tubing tallies_Tally1.csv"
+        dt_path = PATH+"data/tubing_tally.csv"
         # dt_sheet no longer needed for CSV files
         dt_column_lengths = 'D'
         dt_column_ids = 'A'
@@ -116,9 +116,9 @@ if __name__ == "__main__":
 
     # Step 3 - Input
     if step3:
-        stands_pipes_path = PATH+"data/tubing tallies_Racked tubing.csv"
+        stands_pipes_path = PATH+"data/racked_tubing.csv"
         # pipes_sheet no longer needed for CSV files
-        pups_path = PATH+"data/tubing tallies_Tally pups.csv"
+        pups_path = PATH+"data/pups.csv"
 
     # Define triple stands
     if step3:
