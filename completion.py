@@ -1,4 +1,4 @@
-from lib.pipes import AssemblyPipe
+from pipes import AssemblyPipe
 
 class Completion:
     def __init__(self, goal: float):

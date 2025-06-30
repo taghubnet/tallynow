@@ -1,6 +1,6 @@
-from lib.completion import Completion
-from lib.pipes import AssemblyPipe, Pipe, Stand, Rack, Pile
-from lib.import_casing import extract_deck_tally, extract_ids, extract_excel_rows_to_list
+from completion import Completion
+from pipes import AssemblyPipe, Pipe, Stand, Rack, Pile
+from import_casing import extract_deck_tally, extract_ids, extract_excel_rows_to_list
 
 def get_deck_tally(dt_path, dt_sheet, dt_column_ids, dt_column_lengths, dt_start, dt_end, are_pups=False):
     """Extract id and length of all pipes in deck tally from an excel file"""

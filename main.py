@@ -2,6 +2,7 @@ from pipes import AssemblyPipe, Rack, Pile
 from import_casing import extract_casing_joints
 from utils import *
 from pprint import pprint
+import os
 
 def print_step(step):
     print(f"\n##############################################\n\
@@ -26,8 +27,8 @@ if __name__ == "__main__":
     step2 = True
     step3 = True
 
-    # Path to "functional_completion_automation folder"
-    PATH = "C:/{YOUR_PATH}/"
+    # Path to current directory where main.py is executed
+    PATH = os.path.dirname(os.path.abspath(__file__)) + "/"
 
     
     ##############################################
