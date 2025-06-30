@@ -58,7 +58,7 @@ if __name__ == "__main__":
         """ 
         """
         
-        assembly_path = PATH+"assemblies_in_completion.xlsx"
+        assembly_path = PATH+"sheets/assemblies_in_completion.xlsx"
         assembly_tally = get_assemblies_from_file(assembly_path)
 
     # Casing joints
@@ -71,8 +71,8 @@ if __name__ == "__main__":
         
         Paths have to be absolute.
         """
-        c_paths = [PATH+"10 3-4 Tie-back Tally Test_Well_As Run.xlsx",\
-                   PATH+"9 5-8 Liner Tally Test Well As Run.xlsx"]
+        c_paths = [PATH+"sheets/10 3-4 Tie-back Tally Test_Well_As Run.xlsx",\
+                   PATH+"sheets/9 5-8 Liner Tally Test Well As Run.xlsx"]
         c_sheets = ['10 3-4 Tieback back use',\
                     '9 5-8" Liner Tally']
         c_columns = ['I',\
@@ -91,7 +91,7 @@ if __name__ == "__main__":
         """
         Path has to be absolute
         """
-        dt_path = PATH+"tubing tallies.xlsx"
+        dt_path = PATH+"sheets/tubing tallies.xlsx"
         dt_sheet = "Tally1"
         dt_column_lengths = 'D'
         dt_column_ids = 'A'
