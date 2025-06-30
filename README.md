@@ -79,7 +79,8 @@ TallyNow solves the completion tally problem in three sequential steps:
 
 2. **Run completion calculation**:
    ```bash
-   make well
+   make well                    # Use default depth (2247m)
+   make well -E depth=1500     # Use custom depth (1500m)
    ```
 
 3. **Run tests**:
@@ -106,11 +107,21 @@ TallyNow solves the completion tally problem in three sequential steps:
 
 ### Available Make Targets
 
-- `make well` - Run the completion tally calculation
+- `make well` - Run completion calculation with default depth (2247m)
+- `make well -E depth=123` - Run completion calculation with custom depth
 - `make tests` - Run the test suite  
 - `make install` - Install dependencies
 - `make clean` - Clean temporary files
 - `make help` - Show available commands
+
+### Command Line Usage
+
+You can also run the system directly with Python:
+```bash
+python main.py                # Use default depth
+python main.py --depth 1500   # Use custom depth
+python main.py --help         # Show help message
+```
 
 ## Output
 

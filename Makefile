@@ -8,20 +8,35 @@ help:
 	@echo "TallyNow - Automated Upper Completion Tally System"
 	@echo ""
 	@echo "Available targets:"
-	@echo "  well      - Run the completion tally calculation (main.py)"
-	@echo "  tests     - Run all tests"
-	@echo "  install   - Install dependencies"
-	@echo "  clean     - Clean up temporary files"
-	@echo "  lint      - Run code quality checks (if available)"
-	@echo "  help      - Show this help message"
+	@echo "  well              - Run completion calculation with default depth"
+	@echo "  well -E depth=123 - Run completion calculation with custom depth"
+	@echo "  tests             - Run all tests"
+	@echo "  install           - Install dependencies"
+	@echo "  clean             - Clean up temporary files"
+	@echo "  lint              - Run code quality checks (if available)"
+	@echo "  help              - Show this help message"
 
 # Run the main well completion calculation
+# Usage: make well (uses default depth from main.py)
+# Usage: make well -E depth=1500 (uses custom depth)
 well:
 	@echo "Running TallyNow completion calculation..."
 	@if [ -f bin/activate ]; then \
-		. bin/activate && python main.py; \
+		if [ -n "$(depth)" ]; then \
+			echo "Using custom depth: $(depth) meters"; \
+			. bin/activate && python main.py --depth $(depth); \
+		else \
+			echo "Using default depth from main.py"; \
+			. bin/activate && python main.py; \
+		fi; \
 	else \
-		python main.py; \
+		if [ -n "$(depth)" ]; then \
+			echo "Using custom depth: $(depth) meters"; \
+			python main.py --depth $(depth); \
+		else \
+			echo "Using default depth from main.py"; \
+			python main.py; \
+		fi; \
 	fi
 
 # Run all tests

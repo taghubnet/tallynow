@@ -3,6 +3,7 @@ from utils import extract_casing_joints
 from utils import *
 from pprint import pprint
 import os
+import argparse
 
 def print_step(step):
     print(f"\n##############################################\n\
@@ -17,12 +18,21 @@ def prettier_print(dict):
 
 if __name__ == "__main__":
     """
-    Example of usage: 
-    This is based on Test Well 1. Currently the
-    code only cares about the upper completion.
-
-    All tally files are in the 'test_well_163-Q-2_H' folder.
+    TallyNow - Automated Upper Completion Tally System
+    
+    Usage:
+        python main.py                    # Use default depth (2247m)
+        python main.py --depth 1500      # Use custom depth
+        make well                         # Use default depth
+        make well -E depth=1500          # Use custom depth via Makefile
     """
+    
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description='TallyNow - Automated Upper Completion Tally System')
+    parser.add_argument('--depth', type=float, default=2247, 
+                        help='Well depth in meters (default: 2247)')
+    args = parser.parse_args()
+    
     step1 = True
     step2 = True
     step3 = True
@@ -30,6 +40,9 @@ if __name__ == "__main__":
     # Path to current directory where main.py is executed
     PATH = os.path.dirname(os.path.abspath(__file__)) + "/"
 
+    print(f"TallyNow - Upper Completion Calculation")
+    print(f"Well Depth: {args.depth} meters")
+    print("=" * 50)
     
     ##############################################
     ###############     STEP 1     ###############
@@ -37,7 +50,7 @@ if __name__ == "__main__":
 
     # Step 1 - Input
     if step1:
-        well_depth = 2247
+        well_depth = args.depth
 
     # Step 1 - Solving
     if step1:
