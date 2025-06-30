@@ -119,7 +119,7 @@ if __name__ == "__main__":
     if step3:
         stands_pipes_path = dt_path
         pipes_sheet = "Racked tubing"
-        pups_sheet = "Tally Pups"
+        pups_sheet = "Tally pups"
 
     # Define triple stands
     if step3:
