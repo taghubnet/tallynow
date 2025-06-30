@@ -15,22 +15,21 @@ This system automates the complex process of determining what equipment is neede
 - **Multi-Stand Optimization**: Efficiently arranges triple stands, double stands, and single pipes
 - **Inventory Management**: Tracks available equipment and prevents double-use
 - **Fine-Tuning with Pups**: Uses short pipe sections for precise depth matching
-- **Excel Integration**: Seamlessly imports from standard industry tally formats
+- **CSV Integration**: Fast data processing with standard CSV formats
 
 ## Input Files
 
-The system requires several Excel files (stored in the `sheets/` folder):
+The system uses CSV files (stored in the `data/` folder) for fast processing and better version control:
 
-1. **assemblies_in_completion.xlsx**: Assembly overview defining all assemblies that are part of the upper completion, including constraints like upper/lower limits, separation pipes, and critical points
+1. **assemblies.csv**: Assembly overview defining all assemblies that are part of the upper completion, including constraints like upper/lower limits, separation pipes, and critical points
 
-2. **9 5-8 Liner Tally Test Well As Run.xlsx**: Liner tally data for the completion string
+2. **liner_tally.csv**: Liner tally data for the completion string
 
-3. **10 3-4 Tie-back Tally Test_Well_As Run.xlsx**: Tie-back tally of the liner system
+3. **tieback_tally.csv**: Tie-back tally of the liner system
 
-4. **tubing tallies.xlsx**: Contains multiple sheets:
-   - Onshore tally of tubing pipes
-   - Overview of available pup joints
-   - Tally of racked tubing arrangements
+4. **tubing_tally.csv**: Onshore tally of tubing pipes
+5. **racked_tubing.csv**: Tally of pre-arranged tubing stands  
+6. **pups.csv**: Overview of available pup joints (short pipe sections)
 
 ## How It Works
 
@@ -67,27 +66,51 @@ TallyNow solves the completion tally problem in three sequential steps:
 
 ## Installation & Usage
 
-1. **Set up Python environment**:
+### Quick Start
+
+1. **Clone and set up**:
    ```bash
+   git clone <repository-url>
+   cd TallyNow
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
-   pip install pandas openpyxl
+   make install
+   ```
+
+2. **Run completion calculation**:
+   ```bash
+   make well
+   ```
+
+3. **Run tests**:
+   ```bash
+   make tests
+   ```
+
+### Manual Setup
+
+1. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
    ```
 
 2. **Prepare your data**:
-   - Place all Excel files in the `sheets/` folder
-   - Ensure file names match the expected format
-   - Verify sheet names within Excel files are correct
+   - Place all CSV files in the `data/` folder
+   - Ensure file names match the expected format (see Input Files section)
+   - Verify data structure matches the expected CSV format
 
-3. **Run the system**:
-   ```bash
-   python main.py
-   ```
-
-4. **Configure for your well**:
+3. **Configure for your well**:
    - Update `well_depth` variable in main.py (line 39)
    - Adjust file paths if using different naming conventions
    - Modify constraints as needed for your specific well
+
+### Available Make Targets
+
+- `make well` - Run the completion tally calculation
+- `make tests` - Run the test suite  
+- `make install` - Install dependencies
+- `make clean` - Clean temporary files
+- `make help` - Show available commands
 
 ## Output
 
@@ -98,6 +121,26 @@ The system provides:
 - Depth calculations and error margins
 - Visual table showing pipe/stand assignments with top and bottom depths
 
+## Testing
+
+TallyNow includes a comprehensive test suite to ensure reliability:
+
+```bash
+# Run all tests
+make tests
+
+# Run specific test files
+pytest tests/test_basic.py -v
+pytest tests/test_utils.py -v
+```
+
+**Test Coverage:**
+- ✅ CSV import and data processing
+- ✅ Pipe, stand, and assembly operations  
+- ✅ Calculation functions and utilities
+- ✅ Error handling and edge cases
+- 🔄 Integration tests and workflow validation
+
 ## Contributing
 
 This project is open source and welcomes contributions! Areas for improvement include:
@@ -107,6 +150,15 @@ This project is open source and welcomes contributions! Areas for improvement in
 - Web-based user interface
 - Advanced optimization algorithms
 - Integration with industry-standard software
+
+### Development Setup
+
+1. Fork the repository
+2. Create a virtual environment: `python -m venv venv`
+3. Install dependencies: `make install`
+4. Run tests to ensure everything works: `make tests`
+5. Make your changes and add tests
+6. Submit a pull request
 
 ## License
 

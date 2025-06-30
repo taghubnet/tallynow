@@ -1,0 +1,5 @@
+name,length,upper_limit,lower_limit,is_top_assembly,upper_clear,lower_clear,seration_pipes
+assy_1_packer,12.5,0,0,False,50,50,0
+assy_2_valve,8.2,100,200,False,25,25,1
+assy_3_gauge,6.8,300,400,False,30,30,0
+assy_4_plug,15.3,0,0,True,0,0,0

@@ -1,0 +1,6 @@
+Stand_ID,Pipe_1,Pipe_2,Pipe_3,Total_Length,Type
+1,101,102,103,35.2,triple
+2,104,105,106,36.1,triple  
+3,107,108,109,34.8,triple
+Dbl1,201,202,,23.5,double
+Dbl2,203,204,,24.1,double

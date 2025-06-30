@@ -1,0 +1,12 @@
+# TallyNow - Automated Oil & Gas Upper Completion Tally System
+# Core dependencies for production use
+
+# Data processing
+pandas>=2.3.0
+numpy>=2.3.0
+
+# Development and testing
+pytest>=8.4.0
+
+# Optional: Excel support (if users want to work with xlsx files)
+# openpyxl>=3.1.0
