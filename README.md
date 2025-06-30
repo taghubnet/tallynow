@@ -1,12 +1,12 @@
 # TallyNow
 
-**Automated Oil & Gas Well Completion Tally System**
+**Automated Oil & Gas Upper Completion Tally System**
 
-TallyNow is an automated completion tally application that optimizes the arrangement of tubing, pipes, and assemblies for oil and gas well completions. The system takes multiple Excel spreadsheets as input and generates an optimal completion tally that minimizes waste while meeting depth requirements and equipment constraints.
+TallyNow is an automated upper completion tally application that optimizes the arrangement of tubing, pipes, and assemblies for oil and gas well upper completions. The system takes multiple Excel spreadsheets as input and generates an optimal upper completion tally that minimizes waste while meeting depth requirements and equipment constraints.
 
 ## Overview
 
-This system automates the complex process of determining what equipment is needed and how to arrange it for well completion operations. It's designed for dual derrick rig workflows and solves what is essentially a sophisticated "bin packing" optimization problem for oil well construction.
+This system automates the complex process of determining what equipment is needed and how to arrange it for **upper completion operations only**. It's designed for dual derrick rig workflows and solves what is essentially a sophisticated "bin packing" optimization problem for the upper portion of oil well completions.
 
 ## Features
 
@@ -56,7 +56,7 @@ TallyNow solves the completion tally problem in three sequential steps:
   - **Double stands**: 2 pipes joined together
   - **Single pipes**: Individual pipes for flexibility
   - **Pups**: Short sections for precise depth adjustment
-- Produces final tally ready for field operations
+- Produces final upper completion tally ready for field operations
 
 ## Key Components
 
