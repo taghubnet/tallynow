@@ -6,7 +6,7 @@ TallyNow is an automated upper completion tally application that optimizes the a
 
 The [TagHub](https://www.taghub.net) Tally application can plan wells using a similar approach as this codebase.
 
-This codebase is mosly for demostration purposes.
+This codebase is mosly for demonstration purposes.
 
 ## Overview
 
