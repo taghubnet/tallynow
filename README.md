@@ -4,6 +4,10 @@
 
 TallyNow is an automated upper completion tally application that optimizes the arrangement of tubing, pipes, and assemblies for oil and gas well upper completions. The system takes multiple Excel spreadsheets as input and generates an optimal upper completion tally that minimizes waste while meeting depth requirements and equipment constraints.
 
+The [TagHub](https://www.taghub.net) Tally application can plan well using a similar approach as this codebase.
+
+This codebase is mosly for demostration purposes.
+
 ## Overview
 
 This system automates the complex process of determining what equipment is needed and how to arrange it for **upper completion operations only**. It's designed for dual derrick rig workflows and solves what is essentially a sophisticated "bin packing" optimization problem for the upper portion of oil well completions.
