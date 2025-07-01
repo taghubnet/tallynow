@@ -171,6 +171,10 @@ This project is open source and welcomes contributions! Areas for improvement in
 5. Make your changes and add tests
 6. Submit a pull request
 
+## Credits
+
+Initially created by Glenn Varhaug during a summer internship at Equinor.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
